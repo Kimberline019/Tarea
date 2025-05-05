@@ -318,11 +318,21 @@
 
 
 <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>Aplicar el concepto de cuadratura Gaussiana para integración utilizando 
-polinomios de Legendre, para resolver la siguiente integral:
-\begin{align}
-\int$_0$^\pi \sin(x^2) {\rm{d}}x 
-\end{align}</p>
+<h1 id="introduccion-al-tema-a-resolver">Introducción al tema a resolver</h1>
+<p>El objetivo de este trabajo es <strong>aplicar el concepto de cuadratura Gaussiana</strong> para realizar una integración numérica utilizando <strong>polinomios de Legendre</strong>.</p>
+<p>La integral que se busca resolver es la siguiente:</p>
+<p>$$
+\int_0^\pi \sin(x^2) \, dx
+$$</p>
+<p>Dado que esta integral no posee una solución analítica en términos de funciones elementales, es un buen candidato para ser evaluado mediante métodos numéricos como la cuadratura Gaussiana.</p>
+<p>Este método permite calcular integrales con alta precisión, especialmente cuando la función a integrar es suave, como en este caso.</p>
+<hr />
+<h2 id="enfoque">Enfoque</h2>
+<ul>
+<li>Usar <strong>polinomios de Legendre</strong> para obtener los nodos y pesos en el intervalo estándar ([-1, 1]).</li>
+<li><strong>Transformar</strong> estos valores al intervalo deseado ([0, \pi]).</li>
+<li>Aplicar la <strong>cuadratura gaussiana</strong> sobre los nodos escalados para aproximar el valor de la integral.</li>
+</ul>
 
 
 

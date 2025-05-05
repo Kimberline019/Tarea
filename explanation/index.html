@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#explanationmd-introduccion-al-problema-a-revolver" class="md-skip">
+        <a href="#introduccion-al-problema-a-resolver" class="md-skip">
           Skip to content
         </a>
       
@@ -316,6 +316,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cuadratura-gaussiana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuadratura Gaussiana
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cuadratura Gaussiana">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características importantes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -359,6 +383,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cuadratura-gaussiana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuadratura Gaussiana
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cuadratura Gaussiana">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características importantes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -375,46 +423,47 @@
 
 
 
-<h1 id="explanationmd-introduccion-al-problema-a-revolver">explanation.md Introducción al problema a revolver</h1>
+<h1 id="introduccion-al-problema-a-resolver">Introducción al problema a resolver</h1>
 <h2 id="polinomios-de-legendre">Polinomios de Legendre</h2>
-<p>Los polinomios de Legendre son un sistema de polinomios ortogonales que pueden ser definidos de manera recursiva. Tenemos:
-\begin{align}
-\forall (M, N) \in\mathbb N^2, \quad \int_{-1}^1 {\rm{d}}x P$<em>N(x)P_M(x) = \frac{2\delta</em>{MN}}{2N+1}.
-\end{align}
-los polinomios están definidos en el intervalo $[-1, 1]$.
-Se definen empezando con
-\begin{align}
-P$<em>0(x) = 1 \Rightarrow P_1(x) = x,
-\end{align}
-tal que los siguientes órdenes se generan con la regla de recursividad
-\begin{align}
-(N+1)P</em>{N+1}(x) = (2N+1)xP$<em>N(x) -NP</em>{N-1}(x).
-\end{align}
-Alternativamente, los polinomios pueden ser definidos de manera iterativa bajo la regla (fórmula de Rodrigues)
-\begin{align}
-P$_N(x) = \frac1{2^N N!}\frac{d^N}{dx^N}\left[(x^2-1)^N\right].
-\end{align}</p>
-<p>Si se quiere evaluar una integral utilizando distintos
-intervalos de integración, primero se realiza el cálculo
-de los puntos de muestreo $x$_k$ y los pesos $w_k$ 
-en el intervalo $[-1, 1]$. Esto por razones historicas se le
-da este valor estandar y seguidamente, podemos escalar los
-parámetros para ser modificados a un intervalo $[a, b]$ deseado.</p>
-<h1 id="cuadratura-gaussiana">Cuadratura Gaussiana</h1>
-<p>Cuando ya se han calculado las posiciones y los pesos entonces, la integral esta dada por:
-\begin{align}
-\int$<em>a^b {\rm{d}}x f(x) \approx \sum</em>{k=1}^{N} w$_k f(x_k).
-\end{align}
-donde:
-  * $w_k$ son los "pesos"
-  * $x_k$ son los puntos de muestreo</p>
-<p>Para la cuadratura Gaussiana:
-  * Los puntos de muestreo se escogen de manera tal que <strong>no son equidistantes</strong>. Esto introduce más grados de libertad para la misma discretización en $N$ subregiones.
-  * Es exacta para un polinomio de orden $(2N - 1)$.</p>
-<p>Los pesos y puntos de muestreo se eligen tal que:
-  * $x$<em>k$ corresponden a las $N$ raíces (ceros) de los polinomios de Legendre $P_N(x)$ de orden $N$.
-  * Los pesos se eligen tal que:
-      - $\displaystyle w_k = \left[\frac{2}{1-x^2}\left(\frac{dP_N}{dx}\right)^{-2}\right]</em>{x={x$_k}}$, con $x_k$ que cumple $P_N(x_k)=0$</p>
+<p>Los <strong>polinomios de Legendre</strong> son un sistema de polinomios ortogonales definidos en el intervalo ([-1, 1]), con importantes aplicaciones en integración numérica.</p>
+<p>La ortogonalidad de estos polinomios se expresa como:</p>
+<p>$$
+\forall (M, N) \in \mathbb{N}^2, \quad \int_{-1}^{1} P_N(x) P_M(x) \, dx = \frac{2\delta_{MN}}{2N+1}
+$$</p>
+<p>Se definen comenzando con:</p>
+<p>$$
+P_0(x) = 1 \quad \Rightarrow \quad P_1(x) = x
+$$</p>
+<p>y los siguientes polinomios se generan mediante la <strong>relación de recurrencia</strong>:</p>
+<p>$$
+(N+1)P_{N+1}(x) = (2N+1)xP_N(x) - N P_{N-1}(x)
+$$</p>
+<p>También pueden definirse con la <strong>fórmula de Rodrigues</strong>:</p>
+<p>$$
+P_N(x) = \frac{1}{2^N N!} \frac{d^N}{dx^N} \left[(x^2 - 1)^N \right]
+$$</p>
+<hr />
+<p>Si se desea evaluar una integral en un intervalo genérico ([a, b]), primero se calculan los puntos de muestreo (x_k) y los pesos (w_k) en el intervalo estándar ([-1, 1]). Luego, se escalan al intervalo deseado ([a, b]).</p>
+<hr />
+<h2 id="cuadratura-gaussiana">Cuadratura Gaussiana</h2>
+<p>Una vez obtenidos los nodos (x_k) y los pesos (w_k), se puede aproximar una integral definida mediante:</p>
+<p>$$
+\int_a^b f(x)\, dx \approx \sum_{k=1}^{N} w_k\, f(x_k)
+$$</p>
+<p>donde:
+- (w_k): pesos de integración
+- (x_k): puntos de muestreo</p>
+<h3 id="caracteristicas-importantes">Características importantes</h3>
+<ul>
+<li>Los puntos (x_k) <strong>no son equidistantes</strong>.</li>
+<li>La cuadratura gaussiana es exacta para <strong>polinomios de hasta orden (2N - 1)</strong>, usando (N) puntos.</li>
+<li>Los puntos (x_k) corresponden a las raíces del polinomio de Legendre (P_N(x)).</li>
+<li>Los pesos se calculan como:</li>
+</ul>
+<p>$$
+w_k = \left[ \frac{2}{(1 - x^2)} \left( \frac{dP_N}{dx} \right)^{-2} \right]_{x = x_k}, \quad \text{donde } P_N(x_k) = 0
+$$</p>
+<hr />
 
 
 
