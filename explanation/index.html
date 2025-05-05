@@ -425,44 +425,44 @@
 
 <h1 id="introduccion-al-problema-a-resolver">Introducción al problema a resolver</h1>
 <h2 id="polinomios-de-legendre">Polinomios de Legendre</h2>
-<p>Los <strong>polinomios de Legendre</strong> son un sistema de polinomios ortogonales definidos en el intervalo ([-1, 1]), con importantes aplicaciones en integración numérica.</p>
+<p>Los <strong>polinomios de Legendre</strong> son un sistema de polinomios ortogonales definidos en el intervalo <span class="arithmatex">\([-1, 1]\)</span>, con importantes aplicaciones en integración numérica.</p>
 <p>La ortogonalidad de estos polinomios se expresa como:</p>
-<p>$$
+<div class="arithmatex">\[
 \forall (M, N) \in \mathbb{N}^2, \quad \int_{-1}^{1} P_N(x) P_M(x) \, dx = \frac{2\delta_{MN}}{2N+1}
-$$</p>
+\]</div>
 <p>Se definen comenzando con:</p>
-<p>$$
+<div class="arithmatex">\[
 P_0(x) = 1 \quad \Rightarrow \quad P_1(x) = x
-$$</p>
+\]</div>
 <p>y los siguientes polinomios se generan mediante la <strong>relación de recurrencia</strong>:</p>
-<p>$$
+<div class="arithmatex">\[
 (N+1)P_{N+1}(x) = (2N+1)xP_N(x) - N P_{N-1}(x)
-$$</p>
+\]</div>
 <p>También pueden definirse con la <strong>fórmula de Rodrigues</strong>:</p>
-<p>$$
+<div class="arithmatex">\[
 P_N(x) = \frac{1}{2^N N!} \frac{d^N}{dx^N} \left[(x^2 - 1)^N \right]
-$$</p>
+\]</div>
 <hr />
-<p>Si se desea evaluar una integral en un intervalo genérico ([a, b]), primero se calculan los puntos de muestreo (x_k) y los pesos (w_k) en el intervalo estándar ([-1, 1]). Luego, se escalan al intervalo deseado ([a, b]).</p>
+<p>Si se desea evaluar una integral en un intervalo genérico <span class="arithmatex">\([a, b]\)</span>, primero se calculan los puntos de muestreo <span class="arithmatex">\(x_k\)</span> y los pesos <span class="arithmatex">\(w_k\)</span> en el intervalo estándar <span class="arithmatex">\([-1, 1]\)</span>. Luego, se escalan al intervalo deseado <span class="arithmatex">\([a, b]\)</span>.</p>
 <hr />
 <h2 id="cuadratura-gaussiana">Cuadratura Gaussiana</h2>
-<p>Una vez obtenidos los nodos (x_k) y los pesos (w_k), se puede aproximar una integral definida mediante:</p>
-<p>$$
+<p>Una vez obtenidos los nodos <span class="arithmatex">\(x_k\)</span> y los pesos <span class="arithmatex">\(w_k\)</span>, se puede aproximar una integral definida mediante:</p>
+<div class="arithmatex">\[
 \int_a^b f(x)\, dx \approx \sum_{k=1}^{N} w_k\, f(x_k)
-$$</p>
+\]</div>
 <p>donde:
-- (w_k): pesos de integración
-- (x_k): puntos de muestreo</p>
+- <span class="arithmatex">\(w_k\)</span>: pesos de integración
+- <span class="arithmatex">\(x_k\)</span>: puntos de muestreo</p>
 <h3 id="caracteristicas-importantes">Características importantes</h3>
 <ul>
-<li>Los puntos (x_k) <strong>no son equidistantes</strong>.</li>
-<li>La cuadratura gaussiana es exacta para <strong>polinomios de hasta orden (2N - 1)</strong>, usando (N) puntos.</li>
-<li>Los puntos (x_k) corresponden a las raíces del polinomio de Legendre (P_N(x)).</li>
+<li>Los puntos <span class="arithmatex">\(x_k\)</span> <strong>no son equidistantes</strong>.</li>
+<li>La cuadratura gaussiana es exacta para <strong>polinomios de hasta orden <span class="arithmatex">\(2N - 1\)</span></strong>, usando <span class="arithmatex">\(N\)</span> puntos.</li>
+<li>Los puntos <span class="arithmatex">\(x_k\)</span> corresponden a las raíces del polinomio de Legendre <span class="arithmatex">\(P_N(x)\)</span>.</li>
 <li>Los pesos se calculan como:</li>
 </ul>
-<p>$$
+<div class="arithmatex">\[
 w_k = \left[ \frac{2}{(1 - x^2)} \left( \frac{dP_N}{dx} \right)^{-2} \right]_{x = x_k}, \quad \text{donde } P_N(x_k) = 0
-$$</p>
+\]</div>
 <hr />
 
 
@@ -512,10 +512,14 @@ $$</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.math"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
